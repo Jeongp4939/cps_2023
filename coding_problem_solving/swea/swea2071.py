@@ -1,3 +1,4 @@
+# 평균 출력하기(소숫점 첫자리에서 반올림)
 T = int(input())
 
 for tc in range(1,T+1):
