@@ -6,34 +6,27 @@
 # fail
 import sys
 
-for _ in range(int(sys.stdin.readline())):
-    PS=sys.stdin.readline().rstrip()
-    if len(PS)&1:
-        print('NO')
-        continue
+def input():    # 입력 방식 sys를 이용한 방법으로 변경
+    return sys.stdin.readline().rstrip()
 
-    lcnt = 0
-    rcnt = 0
+N = int(input())
+result = ''
 
-
-
-    if PS[0]==')' or PS[-1]=='(':
-        print('NO')
-        continue
-
-    for i in PS:
-        break_flag = True
-        if i =='(':
-            lcnt+=1
+for _ in range(N):
+    testcase = input()
+    cnt = 0
+    for c in testcase:      # for - else for 문
+        if c=='(':          # 시작이 (가 아니면 바로 NO
+            cnt+=1
         else:
-            rcnt+=1
-        if rcnt > lcnt:
-            print('NO')
-            break_flag=False
+            cnt-=1
+        if cnt < 0:         # 시작이 ) 이거나 )의 개수가 더 많음
+            result += "NO\n"
             break
-    if break_flag==False:
-        break
-    if lcnt==rcnt:
-        print('YES')
-    else:
-        print('NO')
+    else:                   # for - else else 문
+        if cnt==0:          # 문제 없이 ( ) 개수가 같으면 yes
+            result+="YES\n"
+        else:               # 개수가 다르면 () 를 완성할 수 없으므로 no
+            result+="NO\n"
+
+print(result)
