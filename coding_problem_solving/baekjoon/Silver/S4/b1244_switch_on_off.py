@@ -12,25 +12,29 @@
 Sw = int(input())    # 스위치의 개수
 switch = [0]+[*map(int,input().split())]    # index 번호 맞추기
 num_std = int(input())
-students = [0]+[[*map(int,input().split())] for i in range(num_std)]
+students = [[0,0]]+[[*map(int,input().split())] for i in range(num_std)]
 
 
-def set_switch(sw):
-    if sw:
+def set_switch(sw):                                             # 스위치 변경
+    if sw:                                                      # 켜져있다면 끄고
         return 0
-    return 1
+    return 1                                                    # 꺼져있으면 키는
 
 for n in range(1,num_std+1):
     if students[n][0] ==1:                                      # 남자일 때 해당 번호의 배수인 스위치 상태 변경
         for i in range(1,Sw+1):
             if not i%students[n][1]:
                 switch[i] = set_switch(switch[i])
-    elif students[n][0] ==2:                                    # 여자일 때 해당 번호의 양 끝점에서 가까운 인덱스 기준으로 대칭 변경
-        dr = min(students[n][1]-1,Sw-students[n][1])            # 양 끝 중 가까운 거리를 계산
-        for i in range(students[n][1]-dr,students[n][1]+dr+1):  # idx의 범위에서 반복문 진행
+    elif students[n][0] ==2:                                    # 여자 일 때 좌우가 대칭이면서 가장 많은 스위치를 포함하는 구간
+        dr = min(students[n][1]-1,Sw-students[n][1])            # 양 끝 중 가까운 거리를 계산    1~idx, idx~Sw
+        cnt = 0
+        for i in range(dr):
+            if switch[students[n][1]-i-1] == switch[students[n][1]+i+1]:
+                cnt += 1
+            else: break
+        for i in range(students[n][1]-cnt,students[n][1]+cnt+1):
             switch[i] = set_switch(switch[i])
 
-print(*switch[1:])
-
-
+for i in range(len(switch[1:])//20+1):
+    print(*switch[1+20*i:1+20*(i+1)])                           # 한 줄에 최대 20개 씩 출력
 
