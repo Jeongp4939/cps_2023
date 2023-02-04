@@ -9,14 +9,14 @@ w, h = map(int,input().split())
 p, q = map(int,input().split())
 t = int(input())
 
-if not ((p+t)//w)%2:
+if not ((p+t)//w)%2:    # 홀수 일 때 -> 정방향
     p_idx = (p+t)%w
-else:
-    p_idx = (- (p + t) % w)%w
+else:                   # 짝수 일 때 -> 역방향
+    p_idx = w- (p + t) % w
 if not ((q+t)//h)%2:
     q_idx = (q+t)%h
 else:
-    q_idx = (- (q + t) % h)%h
+    q_idx = h- (q + t) % h
 
 print(p_idx,q_idx)
 
