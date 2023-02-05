@@ -10,7 +10,7 @@
 # 더 높은 기둥이 나올때까지 진행
 
 N = int(input())
-lst_height = [0]*1000
+lst_height = [0]*1001
 
 for _ in range(N):      # 기둥 높이 배열 생성
     idx, height = map(int,input().split())
@@ -18,8 +18,7 @@ for _ in range(N):      # 기둥 높이 배열 생성
 
 start = 0
 end = 0
-max_height = 0
-for i in range(1000):           # 시작 기둥 파악
+for i in range(1001):           # 시작 기둥 파악
     if lst_height[i]!=0:
         start = i
         break
@@ -27,13 +26,24 @@ for i in range(1000,-1,-1):     # 끝 기둥 파악
     if lst_height[i]!=0:
         end = i
         break
-max_height = max(lst_height[start:end+1])
+lst_height = lst_height[:end+2]
+max_height = max(lst_height)
 max_idx = lst_height.index(max_height)
-height = lst_height[start]
-for i in range(len(lst_height[start:end+1])):
-    if i < max_idx:
-        pass
-    elif i == max_idx:
-        pass
-    else:
-        pass
+height = lst_height[0]
+
+h_lst = []
+
+for i in range(max_idx+1):
+    if lst_height[i]<=height:
+        h_lst.append(height)
+    if lst_height[i]> height:
+        height=lst_height[i]
+        h_lst.append(height)
+height = lst_height[-1]
+for i in range(end,max_idx,-1):
+    if lst_height[i]<=height:
+        h_lst.append(height)
+    if lst_height[i]> height:
+        height=lst_height[i]
+        h_lst.append(height)
+print(sum(h_lst))
