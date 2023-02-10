@@ -10,15 +10,16 @@ A = [0]
 for _ in range(n):
     A.append(int(input()))
 
-changed = False
+# changed = False
 
-for i in range(1,n+1):
-    changed = False
-    for j in range(1,n-i+1):
-        if A[j] > A[j+1]:
-            changed = True
-            A[j],A[j+1] = A[j+1],A[j]
-    if not changed:
-        print(i)
-        break
-print(A)
+# for i in range(1,n+1):
+#     changed = False
+#     for j in range(1,n-i+1):
+#         if A[j] > A[j+1]:
+#             changed = True
+#             A[j],A[j+1] = A[j+1],A[j]
+#     if not changed:
+#         print(i)
+#         break
+
+
