@@ -47,3 +47,4 @@ for i in range(end,max_idx,-1):
         height=lst_height[i]
         h_lst.append(height)
 print(sum(h_lst))
+cd
