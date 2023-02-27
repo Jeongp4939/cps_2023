@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('input.txt','r')
+sys.stdin = open('../input.txt', 'r')
 import copy
 
 dy,dx = [1,0,0],[0,-1,1]

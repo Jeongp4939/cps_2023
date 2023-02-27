@@ -1,5 +1,5 @@
 import sys
-sys.stdin = open('input.txt','r')
+sys.stdin = open('../input.txt', 'r')
 
 for tc in range(1,1+int(input())):
     num_lst = ["ZRO", "ONE", "TWO", "THR", "FOR", "FIV", "SIX", "SVN", "EGT", "NIN"]

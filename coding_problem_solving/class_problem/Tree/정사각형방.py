@@ -1,5 +1,5 @@
 import sys
-sys.stdin=open('input.txt','r')
+sys.stdin=open('../input.txt', 'r')
 
 # 배열의 모든 원소에 대해 +1이 되는 지점으로 이동하며 cnt
 # cnt=1 부터 시작
