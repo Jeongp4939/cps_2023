@@ -7,11 +7,55 @@
 # 기립 박수를 하는 사람의 수를 의미???
 # 문제 설명이 개떡같음..
 
-for tc in range(1,1+int(input())):
-    s = input()
-    clap = int(s[0])
-    cnt = 0
+# for tc in range(1,1+int(input())):
+#     s = input()
+#     # 박수를 치고 있는 사람의 수
+#     clap = int(s[0])
+#     cnt = 0
+#
+#
+#
+#
+#
+#     print(f'#{tc} {cnt}')
+
+# 경준이 코드
+
+# for testcase in range(1,int(input())+1):
+#     arr=list(map(int,list(input())))
+#     result=0
+#     cnt=0
+#     for i in range(len(arr)):
+#         if not arr[i]:
+#             if not cnt:
+#                 result+=1
+#             else:
+#                 cnt-=1
+#         else:
+#             cnt+=arr[i]-1
+#     print(f'#{testcase} {result}')
 
 
-
-    print(f'#{tc} {cnt}')
+# 망한 코드
+#
+# for tc in range(1, 1 + int(input())):
+#     s = input()
+#     clap = int(s[0])
+#
+#     if clap:
+#         cnt = 0
+#     else:
+#         cnt = 1
+#
+#     for i in range(1, len(s)):
+#         if s[i] == '0':
+#             continue
+#         if clap >= i - 1:
+#             pass
+#         else:
+#             while clap < i:
+#                 cnt += 1
+#                 clap += 1
+#         clap += int(s[i])
+#
+#     print(f'#{tc} {cnt}')
