@@ -1,5 +1,5 @@
 import sys
-sys.stdin=open('../input.txt', 'r')
+sys.stdin=open('input.txt', 'r')
 
 # 배열의 모든 원소에 대해 +1이 되는 지점으로 이동하며 cnt
 # cnt=1 부터 시작
@@ -9,6 +9,8 @@ dy,dx = [-1,1,0,0],[0,0,-1,1]
 
 # 1 더 큰 수를 탐색하는 함수 생성
 def one_plus(y,x,cnt=1):
+    if visited[y][x]==1:
+        return 0
     q = [[y,x]]
     while q:
         y,x = q.pop(0)
@@ -18,6 +20,7 @@ def one_plus(y,x,cnt=1):
             if 0<=ny<n and 0<=nx<n:
                 if arr[ny][nx] != arr[y][x]+1:
                     continue
+                visited[ny][nx]=1
                 cnt+=1
                 q.append([ny,nx])
     return cnt
@@ -27,6 +30,7 @@ for tc in range(1,1+int(input())):
     n = int(input())
 
     arr = [list(map(int,input().split())) for _ in range(n)]
+    visited = [[0]*n for _ in range(n)]
     Max=0
     Max_n=0
     Max_n_lst=[]
