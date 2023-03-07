@@ -25,11 +25,11 @@ for tc in range(1,int(input())+1):
         for b in range(a+1,n):
             # 첫줄은 칠해야 하므로
             for i in range(0,a):
-                cnt+=(m-arr[i].count(color[0]))
+                cnt+=(m-arr[i].count('W'))
             for i in range(a,b):
-                cnt+=(m-arr[i].count(color[1]))
+                cnt+=(m-arr[i].count('B'))
             for i in range(b,n):
-                cnt+=(m-arr[i].count(color[2]))
+                cnt+=(m-arr[i].count('R'))
             Min = min(Min,cnt)
             cnt = 0
 
