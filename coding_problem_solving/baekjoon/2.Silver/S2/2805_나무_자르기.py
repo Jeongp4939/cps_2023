@@ -5,9 +5,19 @@ import sys
 input = sys.stdin.readline
 
 n,m = map(int,input().split())
-lst = list(map(int,input().split()))
+tree = list(map(int,input().split()))
 st=0
-ed = sum(lst)
+ed = max(tree)
 
-while st<ed:
-    pass
+while st<=ed:
+    mid = (st+ed)//2
+    Sum = 0
+    for i in tree:
+        if i >=mid:
+            Sum += i-mid
+    # 이분탐색
+    if Sum >=m:
+        st = mid+1
+    else:
+        ed = mid-1
+print(ed)
