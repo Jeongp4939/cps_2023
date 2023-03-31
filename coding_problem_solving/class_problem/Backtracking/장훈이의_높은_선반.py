@@ -1,22 +1,23 @@
-def dfs(lvl,b,idx=0,Sum=0):
+def dfs(n,Sum=0):
     global Min
-    if Sum>Min:
+    # if Sum>Min:
+    #     return
+
+    if Min == 0:
         return
-    if lvl==n:
-        if Sum >= b:
-            Min = min(Min, Sum)
+
+    if n==N:
+        if Sum >= B:
+            Min = min(Min, Sum-B)
         return
-    if Sum>=b:
-        Min = min(Min,Sum)
-    for i in range(n):
-        if i>=idx:
-            dfs(lvl+1,b,i+1,Sum+h_lst[i])
+    dfs(n+1, Sum+h_lst[n]) # 포함
+    dfs(n + 1, Sum) # 포함x
 
 
 for tc in range(1,1+int(input())):
     Min=int(28e8)
-    n,b = map(int,input().split())
+    N,B = map(int,input().split())
     h_lst = list(map(int,input().split()))
-    dfs(0,b)
+    dfs(0,0)
 
-    print(f'#{tc} {Min-b}')
+    print(f'#{tc} {Min}')
