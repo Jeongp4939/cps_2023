@@ -24,6 +24,7 @@ for testcase in range(1, int(input()) + 1):
         graph[i] = i
     for i in sorted_lst:
         start, end, cost = i
+        # 사이클 생성을 방지
         if find(start) != find(end):
             cnt += 1
             result += cost
