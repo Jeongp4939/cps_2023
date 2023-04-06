@@ -25,11 +25,10 @@ def dfs(lvl,x):
             visited = copy.deepcopy(new_visited)
 
 
-for tc in range(1,1+int(input())):
-    n = int(input())
-    cnt=0
-    for i in range(n):
-        arr = [[0] * n for _ in range(n)]
-        visited = [[0] * n for _ in range(n)]
-        dfs(0,i)
-    print(f'#{tc} {cnt}')
+n = int(input())
+cnt=0
+for i in range(n):
+    arr = [[0] * n for _ in range(n)]
+    visited = [[0] * n for _ in range(n)]
+    dfs(0,i)
+print(cnt)
