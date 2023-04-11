@@ -1,30 +1,30 @@
-def dfs(lvl=0,s=''):
-    global flag,Min
-    if flag:
+def dfs(n_len, target, N=0):
+    global Min,t_len
+    # target 이 100이라면 바로 종료
+    if target==100:
+        Min =0
         return
-    if lvl == n_len+1:
-        if int(s)==n:
-            flag=1
-        if Min<abs(n-int(s)):
-            Min =  n-int(s)
-
+    # target과 일치하는 수가 나온다면 해당 수의 자리수
+    if n_len:
+        if N == target:
+            Min = min(Min,t_len)
+            return
+        else:
+            Min = min(Min, n_len+abs(target-N))
+    if n_len>t_len:
         return
     for i in btn:
-        dfs(lvl+1, s+i)
+        dfs(n_len+1,target,N*10+i)
 
-btn = [str(x) for x in range(10)]
+target = int(input())
+t_len = len(str(target))
 n = int(input())
-n_len = len(str(n))
-bk_n = input()
-if bk_n!='0':
-    broken =list(input().split())
+btn = list(range(10))
+if n:
+    broken = list(map(int,input().split()))
     for i in broken:
         btn.remove(i)
-flag=0
-Min = int(28e8)
 
-if n==100:
-    print(0)
-else:
-    dfs()
-    print(min(n_len + Min, abs(100-n)))
+Min = abs(target-100)
+dfs(0,target)
+print(Min)

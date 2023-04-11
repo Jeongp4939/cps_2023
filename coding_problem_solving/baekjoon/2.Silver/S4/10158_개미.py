@@ -9,9 +9,9 @@ w, h = map(int,input().split())
 p, q = map(int,input().split())
 t = int(input())
 
-if not ((p+t)//w)%2:    # 홀수 일 때 -> 정방향
+if not ((p+t)//w)%2:    # 짝수 일 때 -> 정방향
     p_idx = (p+t)%w
-else:                   # 짝수 일 때 -> 역방향
+else:                   # 홀수 일 때 -> 역방향
     p_idx = w- (p + t) % w
 if not ((q+t)//h)%2:
     q_idx = (q+t)%h
