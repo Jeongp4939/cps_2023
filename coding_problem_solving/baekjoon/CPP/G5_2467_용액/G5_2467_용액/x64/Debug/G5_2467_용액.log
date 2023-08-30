@@ -1,4 +1,0 @@
-﻿  main.cpp
-D:\Programming\cps_2023\coding_problem_solving\baekjoon\CPP\G5_2467_용액\G5_2467_용액\main.cpp(23,16): warning C4244: '초기화 중': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-D:\Programming\cps_2023\coding_problem_solving\baekjoon\CPP\G5_2467_용액\G5_2467_용액\main.cpp(29,17): warning C4244: '초기화 중': '__int64'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
-  G5_2467_용액.vcxproj -> D:\Programming\cps_2023\coding_problem_solving\baekjoon\CPP\G5_2467_용액\x64\Debug\G5_2467_용액.exe
